@@ -1,0 +1,34 @@
+main form {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  margin-top: 2rem;
+}
+
+main form textarea {
+  border: none;
+  border-bottom: 4px solid #545149;
+  background-color: transparent;
+  outline: none;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 1em;
+}
+
+main form div {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1em;
+}
+
+button[type=submit] {
+  font-family: 'Bungee', cursive;
+  background-color: #4056A1;
+  color: #ffffff;
+  border: none;
+  padding: 5px 13px;
+}
+
+output.counter {
+  font-family: 'Bungee', cursive;
+}
