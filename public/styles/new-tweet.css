@@ -32,3 +32,7 @@ button[type=submit] {
 output.counter {
   font-family: 'Bungee', cursive;
 }
+
+.negative {
+  color: #ff0000;
+}
