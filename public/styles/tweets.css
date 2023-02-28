@@ -1,0 +1,50 @@
+
+.tweets article {
+  border: 4px solid #545149;
+  margin: 2em 0;
+  padding: 1em;
+}
+
+.tweets article:hover{
+  box-shadow: 5px 5px rgb(202, 202, 243);
+}
+
+.tweets article header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em 0;
+}
+
+.tweets article .user-id {
+  color: rgb(202, 202, 243);
+  font-weight: bold;
+}
+
+.tweets article textarea {
+  border: none;
+  border-bottom: 4px solid #545149;
+  background-color: transparent;
+  outline: none;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 1em;
+  width: 100%;
+}
+
+.tweets footer {
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em 1em 0;
+  font-weight: 600;
+}
+
+.tweets footer i {
+  margin-left: 0.4em;
+}
+
+.tweets footer i:hover {
+ color: #d6a100;
+ cursor: pointer;
+ transition: 0.3s;
+}

@@ -3,7 +3,6 @@ $(document).ready(function() {
     const charCount = $(this).val().length;
     const reamainChars = 140 - charCount;
     const countElement = $(this).parent().find('.counter');
-    
     countElement.text(reamainChars);
 
     if (reamainChars < 0) {
@@ -12,5 +11,4 @@ $(document).ready(function() {
       countElement.removeClass("negative");
     }
   });
-
 });
