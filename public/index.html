@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="/styles/nav.css">
   <link rel="stylesheet" href="/styles/header.css">
   <link rel="stylesheet" href="/styles/new-tweet.css">
+  <link rel="stylesheet" href="/styles/tweets.css">
 
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -56,34 +57,13 @@
         <label for="tweet-text">What are you humming about?</label>
         <textarea name="text" id="tweet-text"></textarea>
         <div>
-          <button type="submit">Tweet</button>
+          <button type="submit" id="submit-btn">Tweet</button>
           <output name="counter" class="counter" for="tweet-text">140</output>
         </div>
       </form>
     </section>
 
     <section class="tweets">
-      <article>
-        <header>
-          <div class="user">
-            <i class="fa-regular fa-user"></i>
-            <span class="user-name">Newton</span>
-          </div>
-          <span class="user-id">@Sirlsaac</span>
-        </header>
-        <textarea>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat leo mauris, dapibus commodo enim sagittis a. Curabitur dapibus lorem ligula, a interdum ex posuere vel. 
-        </textarea>
-        <footer>
-          <div class="update-date">
-            10 days ago
-          </div>
-          <div class="icons">
-            <i class="fa-solid fa-flag"></i>
-            <i class="fa-solid fa-retweet"></i>
-            <i class="fa-solid fa-heart"></i>
-          </div>
-        </footer>
-      </article>
     </section>
   </main>
 </body>
