@@ -5,6 +5,22 @@
  */
 
 $(document).ready(function () {
+
+  $(".right").click(function() {
+    $(".new-tweet").slideToggle();
+    if ($(".new-tweet").is(":visible")) {
+      $("#tweet-text").focus();
+    }
+    
+  });
+
+  //Escape function to re-encode text so that unsafe characters are converted into a safe encoded representation
+  const escape = function(str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
   const createTweetElement = function (tweetData) {
     const $tweet = $(`
   <article>
@@ -15,7 +31,7 @@ $(document).ready(function () {
       </div>
       <span class="user-id">${tweetData.user.handle}</span>
     </header>
-    <textarea>${tweetData.content.text}</textarea>
+    <div class="tweet-content">${escape(tweetData.content.text)}</div>
     <footer>
       <div class="update-date">
       ${timeago.format(tweetData.created_at)}
@@ -45,7 +61,7 @@ $(document).ready(function () {
       url: "/tweets",
       success: (tweets) => {
         renderTweets(tweets.reverse());
-      },
+      }
     });
   };
 
@@ -54,11 +70,15 @@ $(document).ready(function () {
   const $form = $("form");
   $form.submit(function (event) {
     event.preventDefault();
+    $(".error").hide();
+    $("#tweet-text").css("background-color", "transparent");
 
     if (!$("#tweet-text").val()) {
-      alert("Please enter the content.");
+      $("#err-empty").slideDown();
+      $("#tweet-text").css("background-color", "#fdcece");
     } else if ($(".counter").val() < 0) {
-      alert("Please reduce the content to less than or equal to 140 characters.");
+      $("#err-long").slideDown();
+      $("#tweet-text").css("background-color", "#fdcece");
     } else {
       const urlencoded = $(this).serialize();
       $.ajax({
@@ -69,10 +89,7 @@ $(document).ready(function () {
           event.target.reset();
           $(this).find(".counter").val(140);
           loadtweets();
-        },
-        error: (err) => {
-          console.log(err);
-        },
+        }
       });
     }
     

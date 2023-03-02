@@ -20,7 +20,7 @@
   font-weight: bold;
 }
 
-.tweets article textarea {
+.tweets article .tweet-content {
   border: none;
   border-bottom: 4px solid #545149;
   background-color: transparent;
@@ -29,6 +29,8 @@
   font-weight: bold;
   margin-top: 1em;
   width: 100%;
+  overflow-wrap: break-word;
+  min-height: 50px;
 }
 
 .tweets footer {
@@ -48,3 +50,18 @@
  cursor: pointer;
  transition: 0.3s;
 }
+
+.error {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  border: 1px solid;
+  margin-top: 20px;
+  padding: 15px 10px 15px 50px;
+  background-repeat: no-repeat;
+	background-position: 10px center;
+  color: #D8000C;
+	background-color: #FFBABA;
+	background-image: url('https://i.imgur.com/GnyDvKN.png');
+  display: none;
+}
+

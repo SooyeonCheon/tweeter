@@ -19,6 +19,11 @@ nav span.logo {
   flex-direction: column;
   align-items: center;
 }
+
+.right:hover {
+  cursor: pointer;
+}
+
 span.write {
   font-weight: 600;
 }

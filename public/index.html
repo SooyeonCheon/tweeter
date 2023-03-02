@@ -54,6 +54,8 @@
   <!-- Page-specific (main) content here -->
   <main class="container">
     <section class="new-tweet">
+      <div class="error" id="err-empty">Please enter the content.</div>
+      <div class="error" id="err-long">Please reduce the content to less than or equal to 140 characters.</div>
       <form method="POST" action="/tweets">
         <label for="tweet-text">What are you humming about?</label>
         <textarea name="text" id="tweet-text"></textarea>
