@@ -5,39 +5,6 @@
  */
 
 $(document).ready(function () {
-
-  const tweetData = [
-    {
-      user: {
-        name: "Newton",
-        avatars: "https://i.imgur.com/73hZDYK.png",
-        handle: "@SirIsaac",
-      },
-      content: {
-        text: "If I have seen further it is by standing on the shoulders of giants",
-      },
-      created_at: 1461116232227,
-    },
-    {
-      user: {
-        name: "Descartes",
-        avatars: "https://i.imgur.com/nlhLi3I.png",
-        handle: "@rd",
-      },
-      content: {
-        text: "Je pense , donc je suis",
-      },
-      created_at: 1461113959088,
-    },
-  ];
-
-  const renderTweets = function (tweetData) {
-    for (const user of tweetData) {
-      const $usertweet = createTweetElement(user);
-      $(".tweets").append($usertweet);
-    }
-  };
-
   const createTweetElement = function (tweetData) {
     const $tweet = $(`
   <article>
@@ -51,7 +18,7 @@ $(document).ready(function () {
     <textarea>${tweetData.content.text}</textarea>
     <footer>
       <div class="update-date">
-      ${tweetData.created_at}
+      ${timeago.format(tweetData.created_at)}
       </div>
       <div class="icons">
         <i class="fa-solid fa-flag"></i>
@@ -60,46 +27,54 @@ $(document).ready(function () {
       </div>
     </footer>
   </article>
-
   `);
-
     return $tweet;
   };
 
- 
+  const renderTweets = function (tweetData) {
+    $(".tweets").empty();
+    for (const user of tweetData) {
+      const $usertweet = createTweetElement(user);
+      $(".tweets").append($usertweet);
+    }
+  };
+
+  const loadtweets = function () {
+    $.ajax({
+      method: "GET",
+      url: "/tweets",
+      success: (tweets) => {
+        renderTweets(tweets.reverse());
+      },
+    });
+  };
+
+  loadtweets();
 
   const $form = $("form");
-  $form.submit(function(event) {
+  $form.submit(function (event) {
     event.preventDefault();
-    const urlencoded = $form.serialize();
+
+    if (!$("#tweet-text").val()) {
+      alert("Please enter the content.");
+    } else if ($(".counter").val() < 0) {
+      alert("Please reduce the content to less than or equal to 140 characters.");
+    } else {
+      const urlencoded = $(this).serialize();
+      $.ajax({
+        method: "POST",
+        url: "/tweets",
+        data: urlencoded,
+        success: (response) => {
+          event.target.reset();
+          $(this).find(".counter").val(140);
+          loadtweets();
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
+    }
     
-    $.ajax({
-      method: 'POST',
-      url: '/tweets',
-      data: urlencoded,
-      success: (response) => {
-        console.log(response);
-
-        renderTweets(tweetData);
-      },
-      error: (err) => {
-        console.log(err);
-      }
-    })
-  })
+  });
 });
-
-
-
-/*
-$.ajax({
-  method: 'GET',
-  url: '/tweets',
-  dataType: 'json', (optional)
-  success: (responseData) => {},
-  error: (err) => {}
-})
-
-
-
-*/
