@@ -5,6 +5,14 @@
  */
 
 $(document).ready(function () {
+ 
+  $(window).scroll(function() {    
+    if ($(window).scrollTop() > 0) {
+      $("#scroll-btn").addClass("show");
+    } else {
+      $("#scroll-btn").removeClass("show");
+    }
+  });
 
   $(".right").click(function() {
     $(".new-tweet").slideToggle();

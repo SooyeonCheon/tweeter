@@ -37,3 +37,29 @@ body {
   border: 1px solid black;
   margin-top: 1em;
  }
+
+ #scroll-btn {
+  color: red;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 3rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s ease-in-out;
+ }
+
+ #scroll-btn i {
+  transition: 0.2s;
+ }
+
+ #scroll-btn:hover{
+  color: rgb(139, 1, 1);
+  cursor: pointer;
+ }
+
+ #scroll-btn.show {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease-in-out, visibility 0 linear;
+}
