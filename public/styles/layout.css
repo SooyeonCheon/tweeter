@@ -19,6 +19,8 @@ body {
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
 /*
@@ -50,7 +52,8 @@ body {
  }
 
  #scroll-btn i {
-  transition: 0.2s;
+  background-color: white;
+  border-radius: 50%;
  }
 
  #scroll-btn:hover{
@@ -62,4 +65,18 @@ body {
   opacity: 1;
   visibility: visible;
   transition: opacity 0.5s ease-in-out, visibility 0 linear;
+}
+
+@media only screen and (min-width: 1024px) {
+  body {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  main {
+    width: 200%;
+  }
+  .container {
+    width: 70%;
+    margin: 120px 5%;
+  }
 }

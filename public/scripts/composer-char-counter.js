@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
   $("#tweet-text").on('input', function(){
     const charCount = $(this).val().length;
     const reamainChars = 140 - charCount;
@@ -11,4 +12,5 @@ $(document).ready(function() {
       countElement.removeClass("negative");
     }
   });
+  
 });

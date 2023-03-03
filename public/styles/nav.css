@@ -1,8 +1,10 @@
 nav {
   position: fixed;
-  height: 120px;
+  top: 0;
+  height: 100px;
   width: 100vw;
-  background-color: #4056A1;
+  background-color: #d6a100;
+  background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
   color: #FFFFFF;
   padding: 0 1.5em;
   display: flex;
@@ -24,9 +26,30 @@ nav span.logo {
   cursor: pointer;
 }
 
+.right:hover i.fa-angles-down{
+  transform: translateY(6px);
+  transition: 0.2s ease-in-out;
+}
+
+.right:hover div{
+  text-shadow: 1px 1px red;
+  transition: 0.2s ease-in-out;
+}
+
 span.write {
   font-weight: 600;
 }
+
 i.fa-angles-down {
   color: #ff0000;
+  transition: 0.2s ease-in-out;
+}
+
+@media only screen and (min-width: 1024px) {
+  nav {
+    height: 120px;
+    background-color: #4056A1;
+    background-image: none;
+
+  }
 }

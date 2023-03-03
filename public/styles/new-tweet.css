@@ -29,6 +29,10 @@ button[type=submit] {
   padding: 5px 13px;
 }
 
+button[type=submit]:hover {
+  cursor: pointer;
+}
+
 output.counter {
   font-family: 'Bungee', cursive;
 }

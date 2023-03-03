@@ -6,6 +6,7 @@
 
 $(document).ready(function () {
  
+  // second toggle button
   $(window).scroll(function() {    
     if ($(window).scrollTop() > 0) {
       $("#scroll-btn").addClass("show");
@@ -13,13 +14,17 @@ $(document).ready(function () {
       $("#scroll-btn").removeClass("show");
     }
   });
+  $("#scroll-btn").click(function() {
+    $(window).scrollTop(0);
+    $("#tweet-text").focus();
+  });
 
+  // compose button
   $(".right").click(function() {
     $(".new-tweet").slideToggle();
     if ($(".new-tweet").is(":visible")) {
       $("#tweet-text").focus();
     }
-    
   });
 
   //Escape function to re-encode text so that unsafe characters are converted into a safe encoded representation
@@ -75,12 +80,12 @@ $(document).ready(function () {
 
   loadtweets();
 
-  const $form = $("form");
-  $form.submit(function (event) {
+  $("form").submit(function (event) {
     event.preventDefault();
     $(".error").hide();
     $("#tweet-text").css("background-color", "transparent");
 
+    // form validation
     if (!$("#tweet-text").val()) {
       $("#err-empty").slideDown();
       $("#tweet-text").css("background-color", "#fdcece");
@@ -100,6 +105,5 @@ $(document).ready(function () {
         }
       });
     }
-    
   });
 });
